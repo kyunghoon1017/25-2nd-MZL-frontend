@@ -2,6 +2,23 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
+function MainCityCard({ title, img_url, product_count }) {
+  const history = useHistory();
+
+  return (
+    <Card>
+      <BackgroundImg alt="City picture" src={img_url} />
+      <Header>
+        <Title>{title}</Title>
+        <Description>{product_count} 여 개의 여행 상품</Description>
+      </Header>
+      <ButtonContainer onClick={() => history.push('/air')}>
+        <LinkButton>둘러보기</LinkButton>
+      </ButtonContainer>
+    </Card>
+  );
+}
+
 const Card = styled.div`
   position: relative;
   width: 250px;
@@ -69,22 +86,5 @@ const LinkButton = styled.div`
   background-color: #fff;
   color: #495056;
 `;
-
-function MainCityCard({ title, img_url, product_count }) {
-  const history = useHistory();
-
-  return (
-    <Card>
-      <BackgroundImg alt="City picture" src={img_url} />
-      <Header>
-        <Title>{title}</Title>
-        <Description>{product_count} 여 개의 여행 상품</Description>
-      </Header>
-      <ButtonContainer onClick={() => history.push('/main')}>
-        <LinkButton>둘러보기</LinkButton>
-      </ButtonContainer>
-    </Card>
-  );
-}
 
 export default MainCityCard;

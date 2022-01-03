@@ -7,31 +7,51 @@ import ProductList from '../../components/ProductList/ProductList';
 const Main = () => {
   return (
     <MainPage>
-      <MainTitle>어디로 떠나세요?</MainTitle>
-      <MainCityList />
-      <SimpleSlider />
-      <SubTitle>위코더가 보면 좋을 상품</SubTitle>
-      <ProductList />
-      <SubTitle>25기가 보면 좋을 상품</SubTitle>
-      <ProductList />
+      <TitleWrapper>
+        <MainTitle>어디로 떠나세요?</MainTitle>
+        <MainCityList />
+        <SimpleSlider />
+      </TitleWrapper>
+      <SubWrapper>
+        <SubTitle>위코더가 보면 좋을 상품</SubTitle>
+        <ProductList />
+        <SubTitle>25기가 보면 좋을 상품</SubTitle>
+        <ProductList />
+      </SubWrapper>
     </MainPage>
   );
 };
 
 const MainPage = styled.main`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 `;
 
-const MainTitle = styled.div`
-  font-size: 40px;
-  font-weight: bold;
-  margin: 2em 0 1em 11em;
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 2rem;
 `;
 
-const SubTitle = styled.div`
-  font-size: 30px;
+const MainTitle = styled.span`
+  font-size: 1.7rem;
   font-weight: bold;
-  margin: 2em 0 0.5em 15em;
+  margin-top: 2rem;
+`;
+
+const SubWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 2rem 0;
+`;
+
+const SubTitle = styled.span`
+  font-size: 1.7rem;
+  font-weight: bold;
 `;
 
 export default Main;

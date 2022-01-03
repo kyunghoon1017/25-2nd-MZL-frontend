@@ -10,14 +10,12 @@ const settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 6,
+  slidesToShow: 4,
   slidesToScroll: 4,
 };
 
 const SliderContainer = styled.div`
-  padding: 2px 0 8px 0;
-  width: 1550px;
-  margin: 0 30em 5em;
+  width: 1100px;
   .slick-prev {
     left: -20px;
     border-radius: 50%;
@@ -64,7 +62,6 @@ const SliderContainer = styled.div`
 function MainCityList() {
   return (
     <SliderContainer>
-              
       <Slider {...settings}>
         {MAINCITYDATA.map(city => {
           return (
@@ -76,7 +73,7 @@ function MainCityList() {
             />
           );
         })}
-      </Slider>
+      </Slider>{' '}
             
     </SliderContainer>
   );

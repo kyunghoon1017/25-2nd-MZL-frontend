@@ -25,6 +25,7 @@ function Login({ location: { pathname } }) {
       },
     });
   };
+  console.log(kakaoLogin());
 
   return (
     <Container>
