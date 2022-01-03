@@ -47,11 +47,11 @@ export default Footer;
 
 const FooterContainer = styled.footer`
   display: flex;
-  justify-content: space-between;
-  height: 200px;
-  margin-bottom: 50px;
-  padding: 50px 300px;
+  justify-content: center;
+  gap: 29rem;
   border-top: 0.5px solid rgba(0, 0, 0, 0.09);
+  padding-top: 1rem;
+  height: 1rem;
 `;
 
 const Service = styled.div`
@@ -68,7 +68,7 @@ const Tit = styled.span`
 const ServiceDetail = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  margin: 1rem 0;
 `;
 
 const List = styled.span`
@@ -106,7 +106,7 @@ const FooterR = styled.div`
 const Intro = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 3rem;
 `;
 
 const Partnership = styled(Intro)``;

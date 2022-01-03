@@ -10,7 +10,6 @@ import Login from './pages/Login/Login';
 import Flightmainpage from './pages/flightmainpage/Flightmainpage';
 import Cart from './components/Cart/Cart';
 import Booking from './pages/booking/Booking';
-import Cart from './pages/Cart';
 import Payment from './pages/Payment/Payment';
 
 class Routes extends React.Component {

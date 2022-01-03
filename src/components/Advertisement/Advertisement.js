@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -15,20 +16,10 @@ const settings = {
   centermode: true,
 };
 
-const ImageLists = [
-  { id: 0, src: '/images/11.png' },
-  { id: 1, src: '/images/13.png' },
-  { id: 2, src: '/images/14.png' },
-  { id: 3, src: '/images/15.png' },
-  { id: 4, src: '/images/16.png' },
-];
-
 const SliderWrap = styled.div`
-  margin-left: 470px;
-  margin-right: 500px;
+  width: 1080px;
+
   img {
-    width: 100%;
-    height: 20em;
     border-radius: 5px;
     cursor: pointer;
   }
@@ -73,16 +64,30 @@ const SliderWrap = styled.div`
   }
 `;
 
-export default class SimpleSlider extends Component {
-  render() {
-    return (
-      <SliderWrap>
-        <Slider {...settings}>
-          {ImageLists.map(images => (
-            <img key={images.id} alt="!" src={images.src} />
-          ))}
-        </Slider>
-      </SliderWrap>
-    );
-  }
-}
+const ImageLists = [
+  { id: 0, src: '/images/11.png' },
+  { id: 1, src: '/images/13.png' },
+  { id: 2, src: '/images/14.png' },
+  { id: 3, src: '/images/15.png' },
+  { id: 4, src: '/images/16.png' },
+];
+
+const SimpleSlider = () => {
+  const history = useHistory();
+  const handleClick = e => {
+    console.log('이벤트막기');
+    return false;
+  };
+
+  return (
+    <SliderWrap onClick={handleClick}>
+      <Slider {...settings}>
+        {ImageLists.map(images => (
+          <img key={images.id} alt="!" src={images.src} />
+        ))}
+      </Slider>
+    </SliderWrap>
+  );
+};
+
+export default SimpleSlider;

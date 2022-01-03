@@ -15,15 +15,15 @@ const LOGIN_BTN_DATA = [
 ];
 
 const MENU_LIST = [
-  { id: 1, name: '항공권' },
-  { id: 2, name: '숙소' },
-  { id: 3, name: '렌터카' },
-  { id: 4, name: '투어.티켓' },
-  { id: 5, name: '해외여행스캐너' },
-  { id: 6, name: '할인혜택' },
-  { id: 7, name: '제주호텔특가' },
-  { id: 8, name: '해외패키지' },
-  { id: 9, name: '랜선투어' },
+  { id: 1, name: '✈️ 항공권' },
+  { id: 2, name: '🏠 숙소' },
+  { id: 3, name: '🚘 렌터카' },
+  { id: 4, name: '🎟 투어.티켓' },
+  { id: 5, name: '🔍 해외여행스캐너' },
+  { id: 6, name: '✨ 할인혜택' },
+  { id: 7, name: '🎯 제주호텔특가' },
+  { id: 8, name: '📦 해외패키지' },
+  { id: 9, name: '🖥랜선투어' },
 ];
 
 function Nav(props) {
@@ -38,7 +38,7 @@ function Nav(props) {
       <Input>
         <LSide>
           <Link to="/">
-            <Logo src="/images/1111.png" />
+            <Logo src="/images/logo.JPG" />
           </Link>
           <Search />
         </LSide>
@@ -86,16 +86,16 @@ const Wrapper = styled.div`
 
 const Logo = styled.img`
   width: 130px;
-  margin-right: 20px;
+  margin-right: 1rem;
 `;
 
 const Input = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 65%;
-  height: 50px;
-  margin-top: 10px;
+  height: 5rem;
+  margin-top: 0.8rem;
+  gap: 25rem;
 `;
 
 const LSide = styled.header`
@@ -152,9 +152,9 @@ const Btn = styled(Link)`
 
 const Navi = styled.ul`
   display: flex;
-  width: 65%;
-  margin-bottom: 1px;
-  margin-top: 20px;
+  margin-bottom: 0.5rem;
+  margin-top: 1.3rem;
+  gap: 1.5rem;
 `;
 
 const List = styled.li`

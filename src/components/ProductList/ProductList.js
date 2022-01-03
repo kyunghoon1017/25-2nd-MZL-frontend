@@ -9,14 +9,12 @@ const settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 6,
+  slidesToShow: 4,
   slidesToScroll: 4,
 };
 
 const SliderContainer = styled.div`
-  padding: 2px 0 8px 0;
-  width: 1600px;
-  margin-left : 460px;
+  width: 1100px;
 
   .slick-prev {
     height: 40px;
