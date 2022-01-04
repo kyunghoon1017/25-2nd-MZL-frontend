@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
 import FlightSchedule from './FlightCalendar';
 import styled from 'styled-components/macro';
 import RouteTable from './RouteTable';
@@ -68,206 +67,155 @@ const Searchflight = () => {
     }
   };
 
-  // const handleBtn = () => {
-  //   history.push(
-  //     `/air?departure=${cities.departure}&arriaval=${cities.arrival}`
-  //   );
-  // };
-
-  // console.log(
-  //   `${startDate.getMonth() + 1}-${startDate.getDate()}`,
-  //   `${endDate?.getMonth() + 1}-${endDate?.getDate()}`
-  // );
-
   const passengersTotal = Object.values(passengers).reduce(
     (acc, cur) => acc + cur
   );
   return (
     <SearchMain>
-      <SearchSection>
-        <SearchWrap>
-          <SearchHeader>
-            <SearchHeaderul>
-              <SearchHeaderdiv>
-                <SearchHeaderSelector>
-                  <SelectorButton>왕복</SelectorButton>
-                  <SelectorButton>편도</SelectorButton>
-                  <SelectorButton>다구간</SelectorButton>
-                </SearchHeaderSelector>
-              </SearchHeaderdiv>
-              <Reservationlist>
-                <SearchHeaderSelector>
-                  <SelectorButton>
-                    항공권 예약내역
-                    <i className="fas fa-chevron-circle-right" />
-                  </SelectorButton>
-                </SearchHeaderSelector>
-                <SelectorButton>
-                  비회원 예약내역
-                  <i className="fas fa-chevron-circle-right" />
-                </SelectorButton>
-              </Reservationlist>
-            </SearchHeaderul>
-          </SearchHeader>
-          <SelectJourney>
-            <Journey>
-              <JourneyTitle>왕복/편도 출국 귀국 선택</JourneyTitle>
-              <Journeyul>
-                <Journeyli>
-                  <JourneyLocation>
-                    <Journeyinput
-                      placeholder="출발지가 어디인가요?"
-                      name="departure"
-                      onClick={handleInputModal}
-                      value={cities.departure}
-                    />
-                    {isModalOpen ? (
-                      <RouteTable
-                        handleModal={handleInputModal}
-                        selectCity={selectCity}
-                      />
-                    ) : (
-                      <RouteTableMainOFF />
-                    )}
-                    <JourneyButton onClick={changeData}>
-                      <i className="fas fa-arrows-alt-h" />
-                    </JourneyButton>
-                    <Journeyinput
-                      placeholder="도착지가 어딘가요?"
-                      name="arrival"
-                      onClick={handleInputModal}
-                      value={cities.arrival}
-                    />
-                  </JourneyLocation>
-                  <JourneyCalendar>
-                    <FlightSchedule
-                      startDate={startDate}
-                      selectDates={selectDates}
-                      endDate={endDate}
-                    />
-                  </JourneyCalendar>
-                  <ResevationButtonWrapper>
-                    <PassengerReservationButton onClick={handleButtonModal}>
-                      {buttonModal && (
-                        <Passengers
-                          passengers={passengers}
-                          seatType={seatType}
-                          handlePassengers={handlePassengers}
-                          handleSeatType={handleSeatType}
-                          countPassengers={countPassengers}
-                        />
-                      )}
-                      <PassengerFontawesome>
-                        <i className="far fa-user" />
-                      </PassengerFontawesome>
-                      승객 {passengersTotal}명, {seatType}
-                    </PassengerReservationButton>
-                  </ResevationButtonWrapper>
-                  <SearchButton
-                    to={{
-                      pathname: '/reservations',
-                      state: {
-                        airport_depart: `${cities.departure}`,
-                        airport_arrive: `${cities.arrival}`,
-                      },
-                    }}
-                  >
-                    검색
-                  </SearchButton>
-                </Journeyli>
-              </Journeyul>
-            </Journey>
-            <SearchBottom>
-              <NonstopWrapper>
-                <NonstopCheckbox type="checkbox" value="Y" />
-                <label htmlFor="nonstop">
-                  <span>직항만</span>
-                </label>
-              </NonstopWrapper>
-              <FreeOfChargeWrapper>
-                <FreeOfChargebox type="checkbox" />
-                <label htmlFor="freeOfCharge">
-                  <span>무료 수하물 가능</span>
-                </label>
-              </FreeOfChargeWrapper>
-              <RouteWrapper>
-                <span>
-                  | 출발/도착 다른 구간
-                  <i className="far fa-question-circle" />
-                </span>
-              </RouteWrapper>
-            </SearchBottom>
-          </SelectJourney>
-        </SearchWrap>
-      </SearchSection>
+      <SearchHeaderul>
+        <SelectList>
+          <SelectorButton>왕복</SelectorButton>
+          <SelectorButton>편도</SelectorButton>
+          <SelectorButton>다구간</SelectorButton>
+        </SelectList>
+        <Reservationlist>
+          <ReservationButton>항공권 예약내역</ReservationButton>
+          <NotSignupButton>비회원 예약내역</NotSignupButton>
+        </Reservationlist>
+      </SearchHeaderul>
+      <Journey>
+        <Journeyul>
+          <Journeyli>
+            <JourneyLocation>
+              <Journeyinput
+                placeholder="출발지가 어디인가요?"
+                name="departure"
+                onClick={handleInputModal}
+                value={cities.departure}
+              />
+              {isModalOpen ? (
+                <RouteTable
+                  handleModal={handleInputModal}
+                  selectCity={selectCity}
+                />
+              ) : (
+                <RouteTableMainOFF />
+              )}
+              <JourneyButton onClick={changeData}>
+                <i className="fas fa-arrows-alt-h" />
+              </JourneyButton>
+              <Journeyinput
+                placeholder="도착지가 어딘가요?"
+                name="arrival"
+                onClick={handleInputModal}
+                value={cities.arrival}
+              />
+            </JourneyLocation>
+            <JourneyCalendar>
+              <FlightSchedule
+                startDate={startDate}
+                selectDates={selectDates}
+                endDate={endDate}
+              />
+            </JourneyCalendar>
+            <ResevationButtonWrapper>
+              <PassengerReservationButton onClick={handleButtonModal}>
+                {buttonModal && (
+                  <Passengers
+                    passengers={passengers}
+                    seatType={seatType}
+                    handlePassengers={handlePassengers}
+                    handleSeatType={handleSeatType}
+                    countPassengers={countPassengers}
+                  />
+                )}
+                <PassengerFontawesome>
+                  <i className="far fa-user" />
+                </PassengerFontawesome>
+                승객 {passengersTotal}명, {seatType}
+              </PassengerReservationButton>
+            </ResevationButtonWrapper>
+            <SearchButton
+              to={{
+                pathname: '/reservations',
+                state: {
+                  airport_depart: `${cities.departure}`,
+                  airport_arrive: `${cities.arrival}`,
+                },
+              }}
+            >
+              검색
+            </SearchButton>
+          </Journeyli>
+        </Journeyul>
+      </Journey>
+      <SearchBottom>
+        <NonstopWrapper>
+          <NonstopCheckbox type="checkbox" value="Y" />
+          <label htmlFor="nonstop">
+            <span>직항만</span>
+          </label>
+        </NonstopWrapper>
+        <FreeOfChargeWrapper>
+          <FreeOfChargebox type="checkbox" />
+          <label htmlFor="freeOfCharge">
+            <span>무료 수하물 가능</span>
+          </label>
+        </FreeOfChargeWrapper>
+        <RouteWrapper>
+          <span>
+            | 출발/도착 다른 구간
+            <i className="far fa-question-circle" />
+          </span>
+        </RouteWrapper>
+      </SearchBottom>
     </SearchMain>
   );
 };
 
 const SearchMain = styled.main`
   display: flex;
-  justify-content: center;
-  align-content: center;
-  background-color: #fff;
-`;
-
-const SearchSection = styled.section`
-  width: 100%;
-  height: 100%;
-  margin-left: 430px;
-`;
-
-const SearchWrap = styled.div`
-  width: 100%;
-  height: 50%;
-  margin-bottom: 2em;
-`;
-
-const SearchHeader = styled.div`
-  display: flex;
+  flex-direction: column;
   align-items: center;
 `;
 
 const SearchHeaderul = styled.ul`
   display: flex;
-  height: auto;
-  gap: 57em;
-  margin-bottom: 17px;
+  align-items: center;
+  gap: 39rem;
+  margin: 1rem 0;
 `;
 
-const SearchHeaderdiv = styled.div`
+const SelectList = styled.div`
   display: flex;
 `;
 
-const SearchHeaderSelector = styled.div`
-  height: auto;
+const SelectorButton = styled.div`
+  width: 6rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
 `;
 
-const SelectorButton = styled.button`
-  width: 9em;
-  height: 3em;
-  font-size: 15px;
+const ReservationButton = styled.div`
+  font-size: 0.9rem;
   font-weight: bold;
-  color: black;
-  border: none;
-  background-color: transparent;
+  cursor: pointer;
+`;
+
+const NotSignupButton = styled.div`
+  font-size: 0.9rem;
+  font-weight: bold;
   cursor: pointer;
 `;
 
 const Reservationlist = styled.div`
   display: flex;
-  gap: 2em;
+  gap: 1rem;
 `;
-
-const SelectJourney = styled.div``;
 
 const Journey = styled.div`
   display: flex;
-  margin-left: 3em;
-`;
-
-const JourneyTitle = styled.legend`
-  display: none;
 `;
 
 const Journeyul = styled.ul`
@@ -288,12 +236,11 @@ const Journeyinput = styled.input`
   text-align: center;
   font-size: 15px;
   outline: none;
-  padding: 0 130px;
 `;
 
 const JourneyButton = styled.button`
-  width: 40px;
-  height: 40px;
+  width: 3rem;
+  height: 3rem;
   border: none;
   cursor: pointer;
 `;
