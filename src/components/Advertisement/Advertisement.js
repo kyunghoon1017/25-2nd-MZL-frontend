@@ -74,16 +74,15 @@ const ImageLists = [
 
 const SimpleSlider = () => {
   const history = useHistory();
-  const handleClick = e => {
-    console.log('이벤트막기');
-    return false;
+  const handleClick = () => {
+    history.push('/air');
   };
 
   return (
-    <SliderWrap onClick={handleClick}>
+    <SliderWrap>
       <Slider {...settings}>
         {ImageLists.map(images => (
-          <img key={images.id} alt="!" src={images.src} />
+          <img key={images.id} alt="!" src={images.src} onClick={handleClick} />
         ))}
       </Slider>
     </SliderWrap>

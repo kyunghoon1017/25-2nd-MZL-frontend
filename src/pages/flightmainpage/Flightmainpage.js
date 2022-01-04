@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import SimpleSlider from '../../components/Advertisement/Advertisement';
 import Searchflight from '../../components/flightmain/Searchflight';
-// import AirProductList from '../../components/flightmain/AirProductList';
 import ProductList from '../../components/ProductList/ProductList';
 
 const FlightMainPage = () => {
@@ -10,24 +9,26 @@ const FlightMainPage = () => {
     <Flightmain>
       <Searchflight />
       <SimpleSlider />
-
-      {/* <AirProductList /> */}
       <Subtitle>세계 최저가 상품</Subtitle>
+      <ProductList />
       <ProductList />
     </Flightmain>
   );
 };
 
 const Flightmain = styled.main`
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 7rem;
 `;
 
 const Subtitle = styled.div`
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 3em;
-  margin-left: 18em;
+  margin-top: 2rem;
+  margin-right: 60rem;
 `;
 
 export default FlightMainPage;
