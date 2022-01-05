@@ -31,25 +31,21 @@ const dateFormat = 'MM월 dd일';
 
 const FlightCalendarWrapper = styled.section`
   display: flex;
-  align-items: center;
   border: 2px solid #f0f3f5;
-  gap: 0.5em;
-  margin-left: 1em;
-  padding-left: 0.5em;
+  padding: 0.8rem;
+  margin-left: 1rem;
 `;
 
 const FlightCalendarAwesome = styled.div`
-  font-size: 20px;
-  padding: 0.47em 0;
+  font-size: 1.1rem;
   color: #2b96ec;
+  margin: 0 0.5rem;
 `;
 
 const FlightCalendarContent = styled.div`
   input {
-    padding: 0 3em;
-    text-align: center;
     border: none;
-    font-size: 15px;
+    font-size: 1rem;
     border: none;
     outline: none;
     cursor: pointer;
