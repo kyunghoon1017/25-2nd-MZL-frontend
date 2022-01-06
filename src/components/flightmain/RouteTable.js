@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const RouteTable = ({ selectCity, handleModal }) => {
+  const [searchCity, setSearchCity] = useState('');
+  const targetCity = e => {
+    setSearchCity(e.target.value);
+  };
   return (
     <RouteTableMain>
-      <RouteTableFirstSection>
-        <FirstTitleFlex>
-          <div>
-            <SectionTitle>도시 선택</SectionTitle>
-          </div>
-          <FirstTitleFontawsome>
-            <i className="fas fa-times" onClick={handleModal} />
-          </FirstTitleFontawsome>
-        </FirstTitleFlex>
-        <RouteTableSearchWrapper>
-          <RouteTableInput placeholder="도시명을 입력하세요" />
-          <RouteButton>검색</RouteButton>
-        </RouteTableSearchWrapper>
-      </RouteTableFirstSection>
+      <SectionTitle>
+        도시 선택 <i className="fas fa-times" onClick={handleModal} />
+      </SectionTitle>
+      <RouteTableSearchWrapper>
+        <RouteTableInput
+          placeholder="도시명을 입력하세요"
+          onChange={targetCity}
+          value={searchCity}
+        />
+        <RouteButton>검색</RouteButton>
+      </RouteTableSearchWrapper>
       <RouteSelectSection>
         <RouteSelectPtag>주요도시 바로 선택</RouteSelectPtag>
         <LocationTable onClick={selectCity}>
@@ -105,65 +106,64 @@ const RouteTable = ({ selectCity, handleModal }) => {
   );
 };
 
-const SectionTitle = styled.p`
-  font-size: 25px;
-  font-weight: bold;
-  margin-left: 2em;
-  margin-bottom: 1.5em;
-`;
-
 const RouteTableMain = styled.main`
   position: absolute;
-  margin-top: 6px;
-  padding: 28px 32px 32px;
-  max-height: 80%;
-  height: 70%;
-  text-align: center;
-  z-index: 500;
   background: #fff;
+  margin-top: 0.9rem;
+  z-index: 15;
+  width: 50%;
+`;
+
+const SectionTitle = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  gap: 37rem;
+  cursor: pointer;
 `;
 
 const RouteTableSearchWrapper = styled.div`
-  display: flex;
   border: 2px solid #f0f3f5;
-  margin-left: 2.7em;
-  bor
+  position: relative;
+  width: 95%;
+  margin-bottom: 1.5rem;
 `;
 
-const RouteTableFirstSection = styled.section``;
-
 const RouteTableInput = styled.input`
-  padding: 0.85em 36.5em 1em 0.4em;
-  margin-left: 0.3em;
+  width: 90%;
+  padding: 0.8rem 0.5rem;
   border: none;
+  outline: none;
 `;
 
 const RouteButton = styled.button`
-  padding: 0.75em 3em 0.8em 3em;
   border: none;
   outline: none;
+  width: 4.2rem;
+  height: 2.6rem;
   background-color: #2b96ec;
   color: #fff;
-  font-size: 15px;
-  border-radius: 3%;
+  font-size: 1rem;
   cursor: pointer;
 `;
 
 const LocationTable = styled.table`
   border-top: 2px solid #f0f3f5;
-  line-height: 3;
-  margin: 2em 0 2em 5em;
+  line-height: 2.5;
 
   th {
     vertical-align: middle;
-    padding: 3px 50px 0 10px;
     font-weight: 600;
+    padding: 0 2.5rem;
   }
 
   td {
-    padding: 3px 30px;
     cursor: pointer;
     color: #343a40;
+    padding: 0.2rem 1.5rem;
   }
 `;
 
@@ -172,24 +172,12 @@ const LocationTableTr = styled.tr`
   text-align: center;
 `;
 
-const RouteSelectSection = styled.section`
-  margin-top: 3em;
-`;
+const RouteSelectSection = styled.section``;
 
 const RouteSelectPtag = styled.p`
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-left: 4em;
-`;
-
-const FirstTitleFlex = styled.div`
-  display: flex;
-  gap: 38em;
-`;
-
-const FirstTitleFontawsome = styled.div`
-  display: flex;
-  cursor: pointer;
+  margin-bottom: 1rem;
 `;
 
 export default RouteTable;

@@ -22,7 +22,6 @@ const Searchflight = () => {
 
   const handleButtonModal = e => {
     if (e.target !== e.currentTarget) return;
-
     setButtonModal(!buttonModal);
   };
 
@@ -234,8 +233,9 @@ const JourneyLocation = styled.div`
 const Journeyinput = styled.input`
   border: none;
   text-align: center;
-  font-size: 15px;
+  font-size: 0.9rem;
   outline: none;
+  padding: 0 2.3rem;
 `;
 
 const JourneyButton = styled.button`
@@ -251,18 +251,18 @@ const JourneyCalendar = styled.div`
 
 const PassengerReservationButton = styled.button`
   display: flex;
-  margin-left: 15px;
-  font-size: 15px;
-  background-color: white;
+  margin-left: 0.9rem;
+  font-size: 1rem;
+  background-color: #fff;
   border: none;
-  gap: 2em;
+  gap: 1rem;
   align-items: center;
   cursor: pointer;
 `;
 
 const SearchButton = styled(Link)`
-  width: 70px;
-  height: 42px;
+  width: 5rem;
+  height: 2.8rem;
   margin-left: 15px;
   font-size: 15px;
   font-weight: bold;
@@ -277,8 +277,8 @@ const SearchButton = styled(Link)`
 const SearchBottom = styled.section`
   display: flex;
   align-items: center;
-  margin-top: 1em;
-  margin-left: 3em;
+  margin-top: 0.9rem;
+  margin-right: 47rem;
 `;
 
 const NonstopWrapper = styled.div`
