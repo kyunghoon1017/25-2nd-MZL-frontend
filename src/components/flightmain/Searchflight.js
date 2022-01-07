@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom';
 
 const Searchflight = () => {
   const [isModalOpen, setIsOpenModal] = useState(false);
-  const [cities, setCities] = useState({ departure: '', arrival: '' });
+  const [cities, setCities] = useState({ departure: '서울(SEL)', arrival: '' });
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
   const [inputClicked, setInputClicked] = useState('');
   const [buttonModal, setButtonModal] = useState(false);
   const [passengers, setPassengers] = useState({ adult: 1, kid: 0, baby: 0 });
   const [seatType, setSeatType] = useState('');
+  const [searchCity, setSearchCity] = useState('');
 
   const handleInputModal = e => {
     setInputClicked(e.target.name);
@@ -50,6 +51,19 @@ const Searchflight = () => {
 
   const handleSeatType = e => {
     setSeatType(e.target.value);
+  };
+
+  const targetCity = e => {
+    setSearchCity(e.target.value);
+  };
+
+  const searchCities = () => {
+    if (inputClicked === 'departure' && searchCity.length >= 2) {
+      setCities({ ...cities, departure: searchCity });
+    } else {
+      setCities({ ...cities, arrival: searchCity });
+    }
+    setIsOpenModal(false);
   };
 
   const countPassengers = e => {
@@ -96,6 +110,9 @@ const Searchflight = () => {
                 <RouteTable
                   handleModal={handleInputModal}
                   selectCity={selectCity}
+                  targetCity={targetCity}
+                  searchCity={searchCity}
+                  searchCities={searchCities}
                 />
               ) : (
                 <RouteTableMainOFF />
@@ -325,7 +342,7 @@ const ResevationButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   border: 2px solid #f0f3f5;
-  margin-left: 1em;
+  margin-left: 1rem;
   width: 260px;
   height: 45px;
 `;

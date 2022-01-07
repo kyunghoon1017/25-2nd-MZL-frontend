@@ -82,9 +82,9 @@ const Passengers = ({
 
 const PassengersMain = styled.main`
   position: absolute;
-  margin-top: 395px;
-  z-index: 500;
+  z-index: 1;
   background: #fff;
+  margin-top: 25.5rem;
 `;
 
 const PassengersGrades = styled.div`
