@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ko } from 'date-fns/esm/locale';
 
 const FlightSchedule = ({ startDate, selectDates, endDate }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isClicked, setIsClicked] = useState('');
+
+  const Calendar = e => {
+    setIsClicked(e.target.name);
+    console.log(e.target.name);
+    console.log(isOpen);
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <FlightCalendarWrapper>
+    <FlightCalendarWrapper onClick={Calendar}>
       <FlightCalendarAwesome>
         <i className="far fa-calendar" />
       </FlightCalendarAwesome>
@@ -21,6 +31,7 @@ const FlightSchedule = ({ startDate, selectDates, endDate }) => {
           endDate={endDate}
           selectsRange
           monthsShown={2}
+          name="calendar"
         />
       </FlightCalendarContent>
     </FlightCalendarWrapper>

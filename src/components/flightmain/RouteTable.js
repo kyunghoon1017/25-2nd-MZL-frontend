@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const RouteTable = ({ selectCity, handleModal }) => {
-  const [searchCity, setSearchCity] = useState('');
-  const targetCity = e => {
-    setSearchCity(e.target.value);
-  };
+const RouteTable = ({
+  selectCity,
+  handleModal,
+  targetCity,
+  searchCity,
+  searchCities,
+}) => {
   return (
     <RouteTableMain>
       <SectionTitle>
@@ -17,7 +19,7 @@ const RouteTable = ({ selectCity, handleModal }) => {
           onChange={targetCity}
           value={searchCity}
         />
-        <RouteButton>검색</RouteButton>
+        <RouteButton onClick={searchCities}>검색</RouteButton>
       </RouteTableSearchWrapper>
       <RouteSelectSection>
         <RouteSelectPtag>주요도시 바로 선택</RouteSelectPtag>
@@ -111,7 +113,6 @@ const RouteTableMain = styled.main`
   background: #fff;
   margin-top: 0.9rem;
   z-index: 15;
-  width: 50%;
 `;
 
 const SectionTitle = styled.div`
@@ -126,14 +127,13 @@ const SectionTitle = styled.div`
 `;
 
 const RouteTableSearchWrapper = styled.div`
+  display: flex;
   border: 2px solid #f0f3f5;
-  position: relative;
-  width: 95%;
   margin-bottom: 1.5rem;
+  gap: 29rem;
 `;
 
 const RouteTableInput = styled.input`
-  width: 90%;
   padding: 0.8rem 0.5rem;
   border: none;
   outline: none;

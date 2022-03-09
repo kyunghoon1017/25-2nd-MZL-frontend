@@ -118,9 +118,7 @@ function Booking() {
 
 export default Booking;
 
-const BigContainer = styled.div`
-  background-color: ${props => props.theme.subBackground};
-`;
+const BigContainer = styled.div``;
 
 const SelectFlight = styled.div`
   display: flex;
@@ -152,6 +150,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 17px;
+  background-color: ${props => props.theme.subBackground};
 `;
 
 const Bookings = styled.div`
